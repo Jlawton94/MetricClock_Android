@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">The Metric Clock</string>
+    <string name="digitalTimeDefault">0:00:00</string>
+</resources>
