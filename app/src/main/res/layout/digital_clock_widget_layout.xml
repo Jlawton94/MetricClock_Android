@@ -19,7 +19,8 @@
             android:gravity="center"
             android:text="@string/digitalTimeDefault"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:updatePeriodMillis="1000"/>
     </LinearLayout>
 
 </FrameLayout>

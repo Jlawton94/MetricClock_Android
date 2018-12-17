@@ -80,19 +80,12 @@ public class analogMetricClock extends View {
     }
 
     private void drawHands(Canvas canvas) {
-        Calendar c = Calendar.getInstance();
+        metricTime currentTime = new metricTime();
+        Long[] metTime = currentTime.getMetricTime();
 
-        double mHour = c.get(Calendar.HOUR_OF_DAY);
-        double mMinute = c.get(Calendar.MINUTE);
-        double mSecond = c.get(Calendar.SECOND);
-
-        //build metric time
-        double metDaySecs = mHour*3600 + mMinute*60 + mSecond;
-        double metSeconds = metDaySecs*100000/86400;
-        double metHours = Math.floor(metSeconds/10000);
-        metSeconds = Math.floor(metSeconds - 10000 * metHours);
-        double metMins = Math.floor(metSeconds/100);
-        metSeconds = Math.floor(metSeconds - 100 * metMins);
+        long metHours = metTime[0];
+        long metMins = metTime[1];
+        long metSeconds = metTime[2];
 
         drawHand(canvas, (metHours + metMins / 100) * 10f, true,android.R.color.holo_blue_dark);
         drawHand(canvas, metMins, false,android.R.color.holo_blue_dark);

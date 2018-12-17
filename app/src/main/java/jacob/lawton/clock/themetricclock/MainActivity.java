@@ -27,30 +27,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        },100,100);
+        },10,10);
 
     }
 
     private void displayCurrentTime(){
-        //Time in regular Millis
-        long timeMillis = System.currentTimeMillis();
 
+        metricTime currentTime = new metricTime();
+        Long[] metTime = currentTime.getMetricTime();
 
-        //display metric time
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeMillis);
-
-        int mHour = calendar.get(Calendar.HOUR_OF_DAY);
-        int mMinute = calendar.get(Calendar.MINUTE);
-        int mSecond = calendar.get(Calendar.SECOND);
-
-        //build metric time
-        long metDaySecs = mHour*3600 + mMinute*60 + mSecond;
-        long metSeconds = metDaySecs*100000/86400;
-        long metHours = metSeconds/10000;
-        metSeconds = metSeconds - 10000 * metHours;
-        long metMins = metSeconds/100;
-        metSeconds = metSeconds - 100 * metMins;
+        long metHours = metTime[0];
+        long metMins = metTime[1];
+        long metSeconds = metTime[2];
 
         //make strings
         String hours = "0" + Long.toString(metHours);
